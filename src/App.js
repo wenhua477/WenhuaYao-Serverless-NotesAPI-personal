@@ -7,6 +7,7 @@ import Nav from "react-bootstrap/Nav";
 import { LinkContainer } from "react-router-bootstrap";
 import { AppContext } from "./libs/contextLib";
 import { Auth } from "aws-amplify";
+import { onError } from "./libs/errorLib";
 
 function App() {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
@@ -26,7 +27,7 @@ function App() {
     // We don’t want to show this error to users when they load up our app and are not signed in. 
     catch (e) {
       if (e !== 'No current user') {
-        alert(e);
+        onError(e);
       }
     }
 
