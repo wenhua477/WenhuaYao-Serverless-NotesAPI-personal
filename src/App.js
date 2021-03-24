@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useHistory } from "react-router-dom";
 import Navbar from "react-bootstrap/Navbar";
 import "./App.css";
 import Routes from "./Routes";
@@ -10,6 +11,7 @@ import { Auth } from "aws-amplify";
 function App() {
   const [isAuthenticating, setIsAuthenticating] = useState(true);
   const [isAuthenticated, userHasAuthenticated] = useState(false);
+  const history = useHistory();
   // If we pass in an empty list of variables, then it’ll only run our function on the FIRST render.
   useEffect(() => {
     onLoad();
@@ -35,6 +37,7 @@ function App() {
     await Auth.signOut();
 
     userHasAuthenticated(false);
+    history.push("/login");
   }
   return (
     !isAuthenticating && (
