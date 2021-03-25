@@ -5,8 +5,8 @@ const config = {
         BUCKET: "wy-notes-app-upload",
     },
     apiGateway: {
-        REGION: "https://mvqjynih4l.execute-api.us-east-1.amazonaws.com/prod",
-        URL: "us-east-1",
+        REGION: "us-east-1",
+        URL: "https://mvqjynih4l.execute-api.us-east-1.amazonaws.com/prod",
     },
 
     cognito: {
