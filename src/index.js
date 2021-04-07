@@ -6,6 +6,9 @@ import reportWebVitals from './reportWebVitals';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { Amplify } from 'aws-amplify';
 import config from './config';
+import { initSentry } from './libs/errorLib';
+
+initSentry();
 
 // Just setting the various AWS resources that we want to interact with.
 Amplify.configure({
